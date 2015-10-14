@@ -1,0 +1,52 @@
+<!DOCTYPE KigMacroFile>
+<KigMacroFile Number="1" Version="1.0">
+ <Macro>
+  <Name>circumcenter</Name>
+  <Description>Circumcenter of a triangle</Description>
+  <IconFileName>system-run</IconFileName>
+  <Construction>
+   <input requirement="polygon" id="1"/>
+   <intermediate action="push" type="int" id="2">0</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="3">
+    <arg>1</arg>
+    <arg>2</arg>
+   </intermediate>
+   <intermediate action="push" type="int" id="4">1</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="5">
+    <arg>1</arg>
+    <arg>4</arg>
+   </intermediate>
+   <intermediate action="calc" type="SegmentAB" id="6">
+    <arg>3</arg>
+    <arg>5</arg>
+   </intermediate>
+   <intermediate action="fetch-property" property="mid-point" id="7">
+    <arg>6</arg>
+   </intermediate>
+   <intermediate action="calc" type="LinePerpend" id="8">
+    <arg>6</arg>
+    <arg>7</arg>
+   </intermediate>
+   <intermediate action="push" type="int" id="9">2</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="10">
+    <arg>1</arg>
+    <arg>9</arg>
+   </intermediate>
+   <intermediate action="calc" type="SegmentAB" id="11">
+    <arg>10</arg>
+    <arg>3</arg>
+   </intermediate>
+   <intermediate action="fetch-property" property="mid-point" id="12">
+    <arg>11</arg>
+   </intermediate>
+   <intermediate action="calc" type="LinePerpend" id="13">
+    <arg>11</arg>
+    <arg>12</arg>
+   </intermediate>
+   <result action="calc" type="LineLineIntersection" id="14">
+    <arg>8</arg>
+    <arg>13</arg>
+   </result>
+  </Construction>
+ </Macro>
+</KigMacroFile>

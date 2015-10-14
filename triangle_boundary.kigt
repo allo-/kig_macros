@@ -1,0 +1,38 @@
+<!DOCTYPE KigMacroFile>
+<KigMacroFile Number="1" Version="1.0">
+ <Macro>
+  <Name>Boundary</Name>
+  <Description>Boundary of a triangle</Description>
+  <IconFileName>system-run</IconFileName>
+  <Construction>
+   <input requirement="polygon" id="1"/>
+   <intermediate action="push" type="int" id="2">0</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="3">
+    <arg>1</arg>
+    <arg>2</arg>
+   </intermediate>
+   <intermediate action="push" type="int" id="4">1</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="5">
+    <arg>1</arg>
+    <arg>4</arg>
+   </intermediate>
+   <intermediate action="push" type="int" id="6">2</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="7">
+    <arg>1</arg>
+    <arg>6</arg>
+   </intermediate>
+   <result action="calc" type="Vector" id="8">
+    <arg>3</arg>
+    <arg>5</arg>
+   </result>
+   <result action="calc" type="Vector" id="9">
+    <arg>5</arg>
+    <arg>7</arg>
+   </result>
+   <result action="calc" type="Vector" id="10">
+    <arg>7</arg>
+    <arg>3</arg>
+   </result>
+  </Construction>
+ </Macro>
+</KigMacroFile>

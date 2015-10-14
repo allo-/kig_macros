@@ -1,0 +1,52 @@
+<!DOCTYPE KigMacroFile>
+<KigMacroFile Number="1" Version="1.0">
+ <Macro>
+  <Name>signed surface</Name>
+  <Description>Signed Surface of a triangle</Description>
+  <IconFileName>system-run</IconFileName>
+  <Construction>
+   <input requirement="polygon" id="1"/>
+   <intermediate action="push" type="int" id="2">0</intermediate>
+   <intermediate action="push" type="point" id="3">
+    <x>3.05001</x>
+    <y>-1.77514</y>
+   </intermediate>
+   <intermediate action="push" type="string" id="4">%1</intermediate>
+   <intermediate action="push" type="int" id="5">0</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="6">
+    <arg>1</arg>
+    <arg>5</arg>
+   </intermediate>
+   <intermediate action="push" type="int" id="7">1</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="8">
+    <arg>1</arg>
+    <arg>7</arg>
+   </intermediate>
+   <intermediate action="push" type="int" id="9">2</intermediate>
+   <intermediate action="calc" type="PolygonVertex" id="10">
+    <arg>1</arg>
+    <arg>9</arg>
+   </intermediate>
+   <intermediate action="push" type="string" id="11">def calc( arg1, arg2, arg3 ):
+    p21 = arg2.coordinate() - arg1.coordinate()
+    p31 = arg3.coordinate() - arg1.coordinate()
+    area = (p21.x*p31.y - p21.y*p31.x)/2
+    return DoubleObject(area)</intermediate>
+   <intermediate action="calc" type="PythonCompileType" id="12">
+    <arg>11</arg>
+   </intermediate>
+   <intermediate action="calc" type="PythonExecuteType" id="13">
+    <arg>12</arg>
+    <arg>6</arg>
+    <arg>8</arg>
+    <arg>10</arg>
+   </intermediate>
+   <result action="calc" type="Label" id="14">
+    <arg>2</arg>
+    <arg>3</arg>
+    <arg>4</arg>
+    <arg>13</arg>
+   </result>
+  </Construction>
+ </Macro>
+</KigMacroFile>

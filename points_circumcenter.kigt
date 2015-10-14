@@ -1,0 +1,39 @@
+<!DOCTYPE KigMacroFile>
+<KigMacroFile Number="1" Version="1.0">
+ <Macro>
+  <Name>circumcenter</Name>
+  <Description>Circumcenter of three points</Description>
+  <IconFileName>system-run</IconFileName>
+  <Construction>
+   <input requirement="point" id="1"/>
+   <input requirement="point" id="2"/>
+   <input requirement="point" id="3"/>
+   <intermediate action="calc" type="SegmentAB" id="4">
+    <arg>1</arg>
+    <arg>2</arg>
+   </intermediate>
+   <intermediate action="fetch-property" property="mid-point" id="5">
+    <arg>4</arg>
+   </intermediate>
+   <intermediate action="calc" type="LinePerpend" id="6">
+    <arg>4</arg>
+    <arg>5</arg>
+   </intermediate>
+   <intermediate action="calc" type="SegmentAB" id="7">
+    <arg>3</arg>
+    <arg>1</arg>
+   </intermediate>
+   <intermediate action="fetch-property" property="mid-point" id="8">
+    <arg>7</arg>
+   </intermediate>
+   <intermediate action="calc" type="LinePerpend" id="9">
+    <arg>7</arg>
+    <arg>8</arg>
+   </intermediate>
+   <result action="calc" type="LineLineIntersection" id="10">
+    <arg>6</arg>
+    <arg>9</arg>
+   </result>
+  </Construction>
+ </Macro>
+</KigMacroFile>
